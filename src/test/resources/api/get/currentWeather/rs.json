@@ -5,7 +5,7 @@
   },
   "weather": [
     {
-      "id": 800,
+      "id": "type:Integer",
       "main": "type:String",
       "description": "type:String",
       "icon": "type:String"
@@ -22,14 +22,14 @@
     "sea_level": "regex:[\\d\\_\\.]+",
     "grnd_level": "regex:[\\d\\_\\.]+"
   },
-  "visibility": 10000,
+  "visibility": "type:Integer",
   "wind": {
     "speed": "regex:[\\d\\_\\.]+",
     "deg": "regex:[\\d\\_\\.]+",
     "gust": "regex:[\\d\\_\\.]+"
   },
   "clouds": {
-    "all": 0
+    "all": "type:Integer"
   },
   "dt": "regex:[\\d\\_\\.]+",
   "sys": {
