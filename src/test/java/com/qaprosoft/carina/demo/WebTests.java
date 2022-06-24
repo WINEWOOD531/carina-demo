@@ -21,7 +21,7 @@ public class WebTests implements IAbstractTest {
     HomePageTest homePageTest = new HomePageTest(getDriver());
     final String expectedErrorMessageUserName = "Epic sadface: Username is required";
     final String expectedErrorMessagePassword = "Epic sadface: Password is required";
-    final String expectedNewErrorMessage = "Epic sadface: Username and password do not match any user in this service";
+
 
     @Test
     public void testLoginPageEmptyFields() {
