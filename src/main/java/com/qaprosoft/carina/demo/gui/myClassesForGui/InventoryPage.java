@@ -66,11 +66,27 @@ public class InventoryPage extends AbstractPage {
     @FindBy(xpath = "//span[text()='Name (Z to A)']")
     private ExtendedWebElement activeOptionSort_ZA;
 
-    @FindBy(className = "bm-burger-button")
-    private ExtendedWebElement menuButton;
+    /////////////////////////////////////////TEST
+    @FindBy(xpath = "//select[@class='product_sort_container']")
+    private ExtendedWebElement dropDownMenu;
+    @FindBy(xpath = "//*[@id='header_container']/div[2]/div[2]/span/span")
+    private ExtendedWebElement activeDropdown;
+
+    @FindBy(xpath = "//option[@value='az']")
+    private ExtendedWebElement filterAtoZ;
+
+    @FindBy(xpath = "//option[@value='za']")
+    private ExtendedWebElement filterZtoA;
+
+    @FindBy(xpath = "//option[@value='lohi']")
+    private ExtendedWebElement filterPriceLowtoHigh;
+
+    @FindBy(xpath = "//option[@value='hilo']")
+    private ExtendedWebElement filterPriceHightoLow;
 
     public InventoryPage(WebDriver driver) {
         super(driver);
+        setPageURL("/inventory.html");
     }
 
     public boolean isShoppingCartPresent() {
@@ -179,16 +195,15 @@ public class InventoryPage extends AbstractPage {
         return testList.equals(productNamesList);
     }
 
-    public String selectOption() {
+    public String getTextOptionPriceLowToHigh() {
         return optionPriceLowToHigh.getText();
     }
 
-    public boolean clickOnDropdown() {
+    public void clickOnDropdown() {
         optionPriceLowToHigh.click();
-        return false;
     }
 
-    public String DropdownName() {
+    public String getTextDropdownName() {
         return activeOptionDropdownMenu.getText();
     }
 
@@ -200,7 +215,37 @@ public class InventoryPage extends AbstractPage {
         optionDropdownByPriceHighToLow.click();
     }
 
-    public boolean isMenuButtonPresent() {
-        return menuButton.isElementPresent();
+    ////////////////////////////////////////TEST
+    public InventoryPage clickOnDropdownMenu() {
+        dropDownMenu.click(5);
+        return new InventoryPage(getDriver());
+    }
+
+    public String getActiveDropdownName() {
+        return activeDropdown.getText();
+    }
+
+    public String getSelectOption() {
+        return optionPriceLowToHigh.getText();
+    }
+
+    /*    public HomePageTest clickOnDropdownMenu() {
+            dropDownMenu.click(5);
+            return new HomePageTest(getDriver());
+        }*/
+    public String isFilterNameAToZPresent() {
+        return filterAtoZ.getText();
+    }
+
+    public String isFilterNameZToAPresent() {
+        return filterZtoA.getText();
+    }
+
+    public String isFilterPriceLowToHighPresent() {
+        return filterPriceLowtoHigh.getText();
+    }
+
+    public String isFilterPriceHighToLowPresent() {
+        return filterPriceHightoLow.getText();
     }
 }

@@ -17,10 +17,10 @@ public class HomePageTest extends AbstractPage {
     private ExtendedWebElement title;
 
     @FindBy(id = "user-name")
-    private ExtendedWebElement userName;
+    private ExtendedWebElement userNameField;
 
     @FindBy(id = "password")
-    private ExtendedWebElement userPassword;
+    private ExtendedWebElement userPasswordField;
 
     @FindBy(id = "login-button")
     private ExtendedWebElement loginButton;
@@ -46,12 +46,13 @@ public class HomePageTest extends AbstractPage {
     }
 
     public HomePageTest typeUserName(String userName) {
-        this.userName.type(userName);
+        this.userNameField.type(userName);
         LOGGER.info("Written username: " + userName);
         return this;
     }
+
     public HomePageTest typePassword(String password) {
-        userPassword.type(password);
+        userPasswordField.type(password);
         LOGGER.info("Written password: " + password);
         return this;
     }
@@ -72,47 +73,50 @@ public class HomePageTest extends AbstractPage {
     public boolean isErrorMessagePresent() {
         return errorMessage.isElementPresent();
     }
+
     public String getErrorMessage() {
         return errorMessageLogin.getText();
     }
+
     public boolean isErrorIconPresent() {
         return errorIcon.isElementPresent();
     }
+
     public boolean isErrorButtonPresent() {
         return errorButton.isElementPresent();
     }
+
     public String checkUsernameTextField() {
-        pause(5);
-        return userName.getElement().getAttribute("value");
+        return userNameField.getElement().getAttribute("value");
     }
 
     public String checkPasswordTextField() {
-        pause(5);
-        return userPassword.getElement().getAttribute("value");
+        return userPasswordField.getElement().getAttribute("value");
     }
 
     public boolean checkLocationUsername() {
 
-        LOGGER.info("Password location: " + userPassword.getLocation().toString());
-        LOGGER.info("Username location: " + userName.getLocation().toString());
-
-        if (userPassword.getLocation().y > userName.getLocation().y) {
+        LOGGER.info("Password location: " + userPasswordField.getLocation().toString());
+        LOGGER.info("Username location: " + userNameField.getLocation().toString());
+        return userPasswordField.getLocation().y > userNameField.getLocation().y;
+/*        if (userPasswordField.getLocation().y > userNameField.getLocation().y) {
             return true;
         } else {
             return false;
-        }
+        }*/
     }
 
     public boolean checkLocationLoginBtn() {
 
-        LOGGER.info("Password location: " + userPassword.getLocation().toString());
+        LOGGER.info("Password location: " + userPasswordField.getLocation().toString());
         LOGGER.info("Login button location: " + loginButton.getLocation().toString());
-
-        if (userPassword.getLocation().y < loginButton.getLocation().y) {
+        return userPasswordField.getLocation().y < loginButton.getLocation().y;
+/*        if (userPasswordField.getLocation().y < loginButton.getLocation().y) {
             return true;
         } else {
             return false;
-        }
+        }*/
     }
+
 
 }

@@ -98,8 +98,6 @@ public class MyApiTests implements IAbstractTest {
     }
 
     @Test()
-    @MethodOwner(owner = "qpsdemo")
-    @TestPriority(Priority.P2)
     public void testDeleteUser() {
         DeleteUser deleteUserMethod = new DeleteUser();
         deleteUserMethod.callAPIExpectSuccess();
