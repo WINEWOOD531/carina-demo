@@ -83,7 +83,7 @@ public class WebTests implements IAbstractTest {
     public void testProductItemCard() {
         homePageTest.open();
         InventoryPage inventoryPage = homePageTest.loginToAccount(USER_NAME, USER_PASSWORD);
-        Assert.assertFalse(inventoryPage.isPageOpened(), "Inventory/Products page is not opened!");
+        Assert.assertTrue(inventoryPage.isPageOpened(), "Inventory/Products page is not opened!");
         Assert.assertTrue(inventoryPage.isInventoryItemImgPresent(), "Inventory item img is not present");
         Assert.assertTrue(inventoryPage.isInventoryItemNamePresent(), "Inventory item name is not present");
         Assert.assertTrue(inventoryPage.isInventoryItemDescPresent(), "Inventory item description is not present");
@@ -108,7 +108,7 @@ public class WebTests implements IAbstractTest {
         homePageTest.open();
         Assert.assertTrue(homePageTest.isPageOpened(), "Home page is not opened!");
         InventoryPage inventoryPage = homePageTest.loginToAccount(USER_NAME, USER_PASSWORD);
-        Assert.assertFalse(inventoryPage.isPageOpened(), "Inventory/Products page is not opened!");
+        Assert.assertTrue(inventoryPage.isPageOpened(), "Inventory/Products page is not opened!");
         SoftAssert softAssert = new SoftAssert();
         inventoryPage.clickOnDropdownMenu();
         softAssert.assertEquals(inventoryPage.isFilterNameAToZPresent(), NAME_AZ, "Filter Name A to Z is Lost");
@@ -130,7 +130,7 @@ public class WebTests implements IAbstractTest {
     public void testSortByAlphabetical() {
         homePageTest.open();
         InventoryPage inventoryPage = homePageTest.loginToAccount(USER_NAME, USER_PASSWORD);
-        Assert.assertFalse(inventoryPage.isPageOpened(), "Inventory/Products page is not opened!");
+        Assert.assertTrue(inventoryPage.isPageOpened(), "Inventory/Products page is not opened!");
         Assert.assertTrue(inventoryPage.checkSortProducts_AZ(), "The array is not sorted correctly.");
         Assert.assertTrue(inventoryPage.clickSort_AZ(), "(A-Z) filter isn`t present");
         // Assert.assertTrue(inventoryPage.clickSort_ZA(), "(Z-A) filter isn`t present");
@@ -143,7 +143,7 @@ public class WebTests implements IAbstractTest {
         Assert.assertTrue(homePageTest.isPageOpened(), "Home page is not opened!");
         InventoryPage inventoryPage = homePageTest.loginToAccount(USER_NAME, USER_PASSWORD);
 
-        Assert.assertFalse(inventoryPage.isPageOpened(), "Inventory/Products page is not opened!");
+        Assert.assertTrue(inventoryPage.isPageOpened(), "Inventory/Products page is not opened!");
         Assert.assertEquals(inventoryPage.getActiveDropdownName(), "NAME (A TO Z)", "Default dropdown name is incorrect");
         //inventoryPage.clickOnDropdown();
         Assert.assertEquals(inventoryPage.getTextOptionPriceLowToHigh(), "Price (low to high)", "Option doesn't selected");
