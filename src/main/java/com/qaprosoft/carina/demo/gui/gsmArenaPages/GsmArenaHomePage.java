@@ -6,6 +6,7 @@ import com.qaprosoft.carina.core.foundation.utils.Configuration;
 import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.carina.demo.gui.components.FooterMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,6 +18,9 @@ public class GsmArenaHomePage extends AbstractPage {
 
     @FindBy(id = "header")
     private GsmArenaTopMenu topMenu;
+
+    @FindBy(id = "footmenu")
+    private FooterMenu footerMenu;
 
     @FindBy(className = "news-column-index")
     private ExtendedWebElement newsColumn;
@@ -30,4 +34,9 @@ public class GsmArenaHomePage extends AbstractPage {
     public GsmArenaTopMenu getTopMenu() {
         return topMenu;
     }
+
+    public FooterMenu getFooterMenu() {
+        return footerMenu;
+    }
+
 }
